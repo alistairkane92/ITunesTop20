@@ -5,13 +5,13 @@ class Chart extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      data: []
+      songs: []
     }
   }
 
   render() {
     return(
-      <Songs/>
+      <Songs songs={this.state.songs}/>
     )
   }
 
@@ -26,10 +26,7 @@ class Chart extends React.Component {
         console.log('Request Successful');
         let jsonString = xhr.responseText;
         let iTunesData = JSON.parse(jsonString);
-        console.log(iTunesData);
-        this.setState(prevState => {
-          return {data: prevState.data.concat(iTunesData)};
-        });
+        this.setState({songs: iTunesData.feed.entry})
       }
     })
     xhr.send();

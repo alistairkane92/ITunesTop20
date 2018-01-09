@@ -2,9 +2,8 @@ import React from 'react';
 
 class Songs extends React.Component {
   render(){
-    return(
-      <h1>hi</h1>
-    )
+      console.log("profiles: ", this.props.songs);
+      return <h1>hi</h1>
   }
 }
 
